@@ -10,9 +10,6 @@ async function consumeMessages() {
 
     await channel.assertQueue(QUEUE_NAME, { durable: false });
 
-    // Set prefetch count to 1 (only process one message at a time)
-    channel.prefetch(1);
-
     console.log('🎧 Waiting for messages...');
 
     channel.consume(QUEUE_NAME, (msg) => {
